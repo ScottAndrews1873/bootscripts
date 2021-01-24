@@ -8,7 +8,7 @@
 
 ### BEGIN INIT INFO
 # Provides: swap
-# Required-Start: udev
+# Required-Start: mountfs udev
 # Should-Start: modules
 # Required-Stop: localnet $local_fs
 # Should-Stop:
