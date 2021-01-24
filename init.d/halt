@@ -1,0 +1,28 @@
+#!/bin/sh
+########################################################################
+# Begin halt
+#
+# Description : Halt Script
+#
+########################################################################
+
+### BEGIN INIT INFO
+# Provides: halt
+# Required-Start:
+# Should-Start:
+# Required-Stop:
+# Should-Stop:
+# Default-Start: 0
+# Default-Stop:
+# Short-Description:   Halts the system.
+# Description:         Halts the System.
+### END INIT INFO
+
+case "${1}" in
+	stop) halt -d -f -i -p ;;
+	*)
+		echo "Usage: {stop}"
+		exit 1
+	;;
+esac
+# End halt

@@ -1,0 +1,40 @@
+#!/bin/sh
+########################################################################
+# Begin sysctl
+#
+# Description : File uses /etc/sysctl.conf to set kernel runtime
+#               parameters
+#
+########################################################################
+
+### BEGIN INIT INFO
+# Provides:            sysctl
+# Required-Start:      mountvirtfs
+# Should-Start:        console
+# Required-Stop:
+# Should-Stop:
+# Default-Start:       S
+# Default-Stop:
+# Short-Description:   Makes changes to the proc filesystem
+# Description:         Makes changes to the proc filesystem as defined in
+#                      /etc/sysctl.conf.  See 'man sysctl(8)'.
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+case "${1}" in
+	start)
+		if [ -f "/etc/sysctl.conf" ]; then
+			log_info_msg "Setting kernel runtime parameters..."
+			sysctl -q -p
+			evaluate_retval
+		fi
+	;;
+	status)	sysctl -a	;;
+	*)
+		echo "Usage: ${0} {start|status}"
+		exit 1
+	;;
+esac
+exit 0
+# End sysctl

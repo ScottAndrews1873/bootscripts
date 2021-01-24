@@ -1,0 +1,33 @@
+#!/bin/sh
+########################################################################
+# Begin reboot
+#
+# Description : Reboot Scripts
+#
+########################################################################
+
+### BEGIN INIT INFO
+# Provides: reboot
+# Required-Start:
+# Should-Start:
+# Required-Stop:
+# Should-Stop:
+# Default-Start: 6
+# Default-Stop:
+# Short-Description:   Reboots the system.
+# Description:         Reboots the System.
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+case "${1}" in
+	stop)
+		log_info_msg "Restarting system..."
+		reboot -d -f -i
+	;;
+	*)
+		echo "Usage: ${0} {stop}"
+		exit 1
+	;;
+esac
+# End reboot
