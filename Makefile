@@ -10,14 +10,6 @@ CONFMODE=644
 install: files
 
 create-dirs:
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rc0.d
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rc1.d
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rc2.d
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rc3.d
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rc4.d
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rc5.d
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rc6.d
-	install -d -m ${DIRMODE} ${ETCDIR}/rc.d/rcS.d
 	install -d -m ${DIRMODE} ${ETCDIR}/init.d
 	install -d -m ${DIRMODE} ${ETCDIR}/sysconfig
 	install -d -m ${DIRMODE} ${LIBDIR}

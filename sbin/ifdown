@@ -29,36 +29,29 @@ if [ -n "$help" ]; then
 	echo "${VERSTR}"
 	echo "${USAGE}"
 	echo
-	cat << HERE_EOF
-ifdown is used to bring down a network interface.  The interface
-parameter, e.g. eth0 or eth0:2, must match the trailing part of the
-interface specifications file, e.g. /etc/sysconfig/ifconfig.eth0:2.
+	cat <<- HERE_EOF
+		ifdown is used to bring down a network interface.  The interface
+		parameter, e.g. eth0 or eth0:2, must match the trailing part of the
+		interface specifications file, e.g. /etc/sysconfig/ifconfig.eth0:2.
 
-HERE_EOF
+	HERE_EOF
 	exit 0
 fi
-
 file=/etc/sysconfig/ifconfig.${1}
-
 # Skip backup files
 [ "${file}" = "${file%""~""}" ] || exit 0
-
-. /lib/lsb/init-functions
-
+source /lib/lsb/init-functions
 if [ ! -r "${file}" ]; then
 	log_warning_msg "${file} is missing or cannot be accessed."
 	exit 1
 fi
-
-. ${file}
-
+source ${file}
 if [ "$IFACE" = "" ]; then
 	log_failure_msg "${file} does not define an interface [IFACE]."
 	exit 1
 fi
-
 # We only need to first service to bring down the interface
-S=`echo ${SERVICE} | cut -f1 -d" "`
+S=$(echo ${SERVICE} | cut -f1 -d" ")
 
 if ip link show ${IFACE} > /dev/null 2>&1; then
 	if [ -n "${S}" -a -x "/lib/services/${S}" ]; then
@@ -67,16 +60,14 @@ if ip link show ${IFACE} > /dev/null 2>&1; then
 		MSG="Unable to process ${file}.  Either "
 		MSG="${MSG}the SERVICE variable was not set "
 		MSG="${MSG}or the specified service cannot be executed."
-		log_failure_msg "$MSG"
+		log_failure_msg "${MSG}"
 		exit 1
 	fi
 else
 	log_warning_msg "Interface ${1} doesn't exist."
 fi
-
 # Leave the interface up if there are additional interfaces in the device
-link_status=`ip link show ${IFACE} 2>/dev/null`
-
+link_status=$(ip link show ${IFACE} 2>/dev/null)
 if [ -n "${link_status}" ]; then
 	if [ "$(echo "${link_status}" | grep UP)" != "" ]; then
 		if [ "$(ip addr show ${IFACE} | grep 'inet ')" == ""  ]; then
@@ -86,5 +77,4 @@ if [ -n "${link_status}" ]; then
 		fi
 	fi
 fi
-
 # End /sbin/ifdown

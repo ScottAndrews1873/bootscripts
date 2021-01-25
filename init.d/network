@@ -33,9 +33,7 @@ case "${1}" in
 		umount --all --force --types nfs,cifs,nfs4
 		# Reverse list
 		net_files=""
-		for file in  /etc/sysconfig/ifconfig.* ; do
-			net_files="${file} ${net_files}"
-		done
+		for file in  /etc/sysconfig/ifconfig.* ; do net_files="${file} ${net_files}"; done
 		# Stop all network interfaces
 		for file in ${net_files} ; do
 			interface=${file##*/ifconfig.}
@@ -44,16 +42,11 @@ case "${1}" in
 			/sbin/ifdown ${interface}
 		done
 	;;
-	restart)
-		${0} stop
-		sleep 1
-		${0} start
-	;;
+	restart)	${0} stop; sleep 1; ${0} start; ;;
 	*)
 		echo "Usage: ${0} {start|stop|restart}"
 		exit 1
 	;;
 esac
 exit 0
-
 # End network
