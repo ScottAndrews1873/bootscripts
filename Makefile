@@ -30,6 +30,7 @@ files: create-dirs
 	install -m ${MODE} init.d/network ${ETCDIR}/init.d/
 	install -m ${MODE} init.d/rc ${ETCDIR}/init.d/
 	install -m ${MODE} init.d/reboot ${ETCDIR}/init.d/
+	install -m ${MODE} init.d/rngd ${ETCDIR}/init.d/
 	install -m ${MODE} init.d/sendsignals ${ETCDIR}/init.d/
 	install -m ${MODE} init.d/swap ${ETCDIR}/init.d/
 	install -m ${MODE} init.d/sysctl ${ETCDIR}/init.d/
