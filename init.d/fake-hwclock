@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ### BEGIN INIT INFO
 # Provides: fake-hwclock
@@ -13,8 +13,7 @@
 ### END INIT INFO
 
 case "${1}" in
-	start)
-		savedtime=$(stat -c %Y "$0")
+	start)	savedtime=$(stat -c %Y "$0")
 		if [ $(date +%s) -lt ${savedtime} ]; then
 			echo "Restoring saved system time"
 			date -s @${savedtime}
@@ -22,12 +21,10 @@ case "${1}" in
 			echo "Not restoring old system time"
 		fi
 	;;
-	stop)
-		echo "Saving current time."
+	stop)	echo "Saving current time."
 		touch "${0}"
 	;;
-	*)
-		echo "Usage: ${0} {start|stop}"
+	*)	echo "Usage: ${0} {start|stop}"
 		exit 1
 		;;
 esac
