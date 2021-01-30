@@ -3,10 +3,6 @@
 #
 # Description : Module auto-loading configuration
 #
-# Authors     :
-#
-# Version     : 00.00
-#
 # Notes       : The syntax of this file is as follows:
 #  		<module> [<arg1> <arg2> ...]
 #

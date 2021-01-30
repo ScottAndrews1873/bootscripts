@@ -9,6 +9,9 @@ CONFMODE=644
 
 install: files
 
+archive:
+	git archive --format=tar.gz --prefix=bootscripts-master/ master > bootscripts-master.tar.gz
+
 create-dirs:
 	install -d -m ${DIRMODE} ${ETCDIR}/init.d
 	install -d -m ${DIRMODE} ${ETCDIR}/sysconfig

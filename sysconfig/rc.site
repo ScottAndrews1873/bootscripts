@@ -4,7 +4,7 @@
 # Distro Information
 # These values, if specified here, override the defaults
 #DISTRO="Home Brew Linux" # The distro name
-#DISTRO_CONTACT="scott.andrew3s@columbus.rr.com" # Bug report address
+#DISTRO_CONTACT="scott.andrews@columbus.rr.com" # Bug report address
 #DISTRO_MINI="HBL" # Short name used in filenames for distro config
 
 # Define custom colors used in messages printed to the screen
