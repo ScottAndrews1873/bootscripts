@@ -19,14 +19,9 @@
 ### END INIT INFO
 
 case "${1}" in
-   stop)
-      halt -d -f -i -p
-      ;;
-
-   *)
-      echo "Usage: {stop}"
-      exit 1
-      ;;
+	stop)	halt -d -f -i -p; ;;
+	*)	echo "Usage: {stop}"
+		exit 1
+	;;
 esac
-
 # End halt

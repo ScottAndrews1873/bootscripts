@@ -4,7 +4,7 @@
 # Distro Information
 # These values, if specified here, override the defaults
 #DISTRO="Home Brew Linux" # The distro name
-#DISTRO_CONTACT="scott.andrews@columbus.rr.com" # Bug report address
+#DISTRO_CONTACT="scott.andrewscolumbus.rr.com" # Bug report address
 #DISTRO_MINI="HBL" # Short name used in filenames for distro config
 
 # Define custom colors used in messages printed to the screen
@@ -75,7 +75,7 @@
 #LOGLEVEL=7
 
 # For network
-#HOSTNAME=mylfs
+#HOSTNAME=rpi
 
 # Delay between TERM and KILL signals at shutdown
 #KILLDELAY=3
@@ -89,4 +89,3 @@
 #KEYMAP_CORRECTIONS="euro2"
 #FONT="lat0-16 -m 8859-15"
 #LEGACY_CHARSET=
-

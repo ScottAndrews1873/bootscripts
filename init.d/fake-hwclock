@@ -20,11 +20,7 @@ case "${1}" in
 		else
 			echo "Not restoring old system time"
 		fi
-	;;
-	stop)	echo "Saving current time."
-		touch "${0}"
-	;;
-	*)	echo "Usage: ${0} {start|stop}"
-		exit 1
 		;;
+	stop)	echo "Saving current time."; touch "${0}"; ;;
+	*)	echo "Usage: ${0} {start|stop}"; exit 1; ;;
 esac

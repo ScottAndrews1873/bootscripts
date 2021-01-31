@@ -20,16 +20,13 @@ case "${1}" in
 			start_daemon /usr/sbin/rngd
 			evaluate_retval
 		fi
-	;;
+		;;
 	stop)	log_info_msg "Stopping rng daemon..."
 		killproc /usr/sbin/rngd
-		evaluate_retval
-	;;
+		evaluate_retval; ;;
 	restart)	${0} stop; sleep 1; ${0} start; ;;
 	status)	statusproc /usr/sbin/rngd; ;;
-	*)	echo "Usage: ${0} {start|stop|restart|status}"
-		exit 1
-	;;
+	*)	echo "Usage: ${0} {start|stop|restart|status}"; exit 1;	;;
 esac
 exit 0
 # End rngd

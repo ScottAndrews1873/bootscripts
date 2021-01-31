@@ -18,19 +18,14 @@
 # Description:         Reboots the System.
 ### END INIT INFO
 
-. /lib/lsb/init-functions
+source /lib/lsb/init-functions
 
 case "${1}" in
-   stop)
-      log_info_msg "Restarting system..."
-      reboot -d -f -i
-      ;;
-
-   *)
-      echo "Usage: ${0} {stop}"
-      exit 1
-      ;;
-
+	stop)	log_info_msg "Restarting system..."
+		reboot -d -f -i
+	;;
+	*)	echo "Usage: ${0} {stop}"
+		exit 1
+	;;
 esac
-
 # End reboot
