@@ -22,7 +22,7 @@
 #                      device nodes
 ### END INIT INFO
 
-soource /lib/lsb/init-functions
+source /lib/lsb/init-functions
 
 case "${1}" in
 	start)	log_info_msg "Retrying failed uevents, if any..."
