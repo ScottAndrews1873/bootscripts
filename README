@@ -14,7 +14,7 @@ Network Configuration:
       - ONBOOT : If set to yes, this interface will be started on bootup
 
       /etc/sysconfig/network
-      - HOSTNAME: Value of the system's hostname  (From LFS Book)
+      - HOSTNAME: Value of the system's hostname
                   This value may also be set in /etc/sysconfig/rc.site
 
    Additional Configuration:

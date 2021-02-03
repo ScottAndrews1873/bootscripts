@@ -4,8 +4,6 @@
 #
 # Description : Udev cold-plugging script (retry)
 #
-# Version     : LFS 7.0
-#
 ########################################################################
 
 ### BEGIN INIT INFO
